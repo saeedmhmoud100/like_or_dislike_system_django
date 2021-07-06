@@ -16,6 +16,8 @@
                 <div class="card-body">
                   <h5 class="card-title">{{post.title}}</h5>
                   <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">show more detail</a>
+                  <br><span>{{post.like.count}} Like</span>
+                  <br><span>{{post.dislike.count}} Dislike</span>
                 </div>
               </div>
         </div>

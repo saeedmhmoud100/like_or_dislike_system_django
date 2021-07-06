@@ -1,9 +1,11 @@
 from django.shortcuts import redirect, render
+from django.db.models import Max
 from .models import Post
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.annotate(max_like=Max('like')).order_by('-max_like')
+
     context={
         'posts':posts
     }
